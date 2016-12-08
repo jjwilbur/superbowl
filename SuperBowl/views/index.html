@@ -1,0 +1,23 @@
+<html ng-app="myApp">
+<head>
+  <title>Super Bowl 2017!</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/static/css/styles.css" />
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <script src="javascripts/app.js"></script>
+</head>
+<body ng-app="superbowl" ng-controller="MainCtrl">
+  <div ng-controller="myController">
+    <h2>Welcome! You are Logged In as <%= username %></h2>
+    <a href="/logout">logout</a><br>
+    <a href="/user">Edit User</a>
+  </div>
+  <h1 style="text-align: center">Super Bowl 2017</h1>
+  <h2 style="text-align: center">Who do you think will win?</h2>
+  <div style="display: inline-block; margin: 10px" ng-repeat="team in teams | orderBy: '-votes'">
+    <img src={{team.picture}}>
+    <p style="text-align: center">{{team.title}}</p>
+    <p style="text-align: center">Votes: {{team.votes}} <span class="glyphicon glyphicon-upload" style="margin-left: 5px" ng-click="incrementVotes(team)"></span></p> 
+  </div>
+</body>
+</html>
